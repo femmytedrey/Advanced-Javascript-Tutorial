@@ -108,29 +108,66 @@ function sayMyName(){
 // console.log(person2.getFullName())
 // console.log(person3.getFullName())
 
-class Person {
-    constructor(fName, lName){
-        this.firstName = fName
-        this.lastName = lName
-    }
-    sayMyName(){
-        return this.firstName + ' ' + this.lastName
-    }    
+// class Person {
+//     constructor(fName, lName){
+//         this.firstName = fName
+//         this.lastName = lName
+//     }
+//     sayMyName(){
+//         return this.firstName + ' ' + this.lastName
+//     }    
+// }
+
+// const classP1 = new Person('Adeyemo', 'Ayomide')
+// console.log(classP1.sayMyName())
+
+// class SuperHero extends Person {
+//     constructor(fName, lName){
+//         super(fName, lName)
+//         this.isSuperHero = true
+//     }
+//     fightCrime(){
+//         console.log('Fighting crime')
+//     }
+// }
+
+// const batman = new SuperHero('Adeyemo Ayomide')
+// console.log(batman.sayMyName())
+
+const obj = {
+    [Symbol.iterator]: function() {
+        let step = 0
+        const iterator = {
+            next: function(){
+                step++
+                if(step === 1){
+                    return{value: 'Hello', done: false}
+                } else if(step === 2){
+                    return{value: 'World', done: false}
+                }
+                return{value: undefined, done: true}
+            },
+        }
+     return iterator   
+    },
 }
 
-const classP1 = new Person('Adeyemo', 'Ayomide')
-console.log(classP1.sayMyName())
+// for(const word of obj){
+//     console.log(word);
+// }
 
-class SuperHero extends Person {
-    constructor(fName, lName){
-        super(fName, lName)
-        this.isSuperHero = true
-    }
-    fightCrime(){
-        console.log('Fighting crime')
-    }
+function normalFunction() {
+    console.log('Hello')
+    console.log('World')
+}
+// normalFunction()
+
+function* generatorFunction() {
+    yield 'Hello'
+    yield 'World'
 }
 
-const batman = new SuperHero('Adeyemo Ayomide')
-console.log(batman.sayMyName())
-
+const generatorObject = generatorFunction()
+    for(const word of generatorObject){
+    console.log(word)
+}
