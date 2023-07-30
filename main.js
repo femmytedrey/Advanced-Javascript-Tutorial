@@ -63,14 +63,37 @@ function sayMyName(){
 }
 
 // sayMyName.call(person)
-globalThis.name = `Oluwafemi`
-function Person(name){
-    this.name = name
-}
+// globalThis.name = `Oluwafemi`
+// function Person(name){
+//     this.name = name
+// }
 
-const p1 = new Person(`Ayomide`)
-const p2 = new Person(`Oluwafemi`)
+// const p1 = new Person(`Ayomide`)
+// const p2 = new Person(`Oluwafemi`)
 
 // console.log(p1.name, p2.name)
 
-sayMyName()
+// sayMyName()
+
+function Person(fName, lName){
+    this.firstName = fName
+    this.lastName = lName
+}
+
+const person1 = new Person('Adeyemo', 'Ayomide')
+const person2 = new Person('Adeyemo', 'Emmanuel')
+const person3 = new Person('Adeyemo', 'Esther')
+
+Person.prototype.getFullName = function () {
+    return this.firstName + ' ' + this.lastName
+}
+ person2.getFullName = function () {
+     return this.firstName + ' ' + this.lastName
+ }
+ function superHero(){
+    this.isSuperHero = true
+ }
+
+// console.log(person1.getFullName())
+// console.log(person2.getFullName())
+// console.log(person3.getFullName())
