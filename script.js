@@ -36,6 +36,32 @@ document.getElementById("submitButton").onclick = function (){
     alert("Too small!");
   }
   else{
-    alert("Too large!");
+    alert("Too large!"); 
   }
+}
+
+// array = think of it as a variable 
+//              that can store multiple values
+
+let fruits = ["apple", "orange", "banana"];
+
+//fruits[2] = "coconut";
+
+//fruits.push("lemon");      //add an element
+//fruits.pop();                     //removes last element
+//fruits.unshift("mango"); //add element to beginning
+//fruits.shift();                   //removes element from beginning
+
+//let length = fruits.length;
+//let index = fruits.indexOf("kiwi");
+
+console.log(fruits);
+
+
+
+fruits = fruits.sort();
+//fruits = fruits.sort().reverse();
+
+for(let fruit of fruits){
+    console.log(fruit);
 }
