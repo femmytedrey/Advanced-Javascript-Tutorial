@@ -181,3 +181,30 @@ console.log(document.URL)
 console.log(document.title)
 
 document.title = "My Title";
+
+
+const express = require('express');
+const fetch = require('node-fetch');
+const app = express();
+const port = 3000; // You can change the port number
+
+app.use(express.json());
+
+// Define an endpoint for getting random jokes
+app.get('/random-joke', async (req, res) => {
+  try {
+    // Fetch a random joke from an external API (e.g., JokeAPI)
+    const response = await fetch('https://jokeapi.dev/api/random_joke');
+    const jokeData = await response.json();
+
+    // Send the joke as a JSON response
+    res.json({ joke: jokeData.joke });
+  } catch (error) {
+    console.error('Error fetching a random joke:', error);
+    res.status(500).json({ error: 'Could not fetch a joke' });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
