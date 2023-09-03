@@ -177,4 +177,7 @@ console.log(circumference);
 let area = MathUtil.getArea(10);
 console.log(area);
 
-console.log(document)
+console.log(document.URL)
+console.log(document.title)
+
+document.title = "My Title";
